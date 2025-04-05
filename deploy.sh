@@ -49,11 +49,14 @@ EOF
             exit 4
             ;;
     esac
-}
+} #end deploy()
+
+available_types="python, tox"
+help_str="Usage: $0 [project type] -n project_name\nAvailable types are: $available_types" 
 
 
 if [[ $# -eq 0 ]]; then
-    echo "Usage: $0 [project type] -n project_name" >&2
+    echo -e $help_str >&2
     exit 1
 fi
 
@@ -65,6 +68,10 @@ case "$1" in
     [Tt]ox)
         lang="tox"
         shift
+        ;;
+    --help | -h)
+        echo -e  $help_str
+        exit
         ;;
     (*)
         echo "$0: no such language: $1" >&2
