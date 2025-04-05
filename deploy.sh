@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# This script creates the default filestructure for python project.
+# This script creates the default file structure for python project.
 
 deploy () {
     local lang="$1"
@@ -12,7 +12,7 @@ deploy () {
 
     case "$lang" in
         python)
-            echo "Begin python project deploymeny in $projectName...."
+            echo "Begin python project deployment in $projectName...."
             mkdir -p "$projectName" "$projectName/tests" "$projectName/src/$projectName" # create the root directory and sub-dirs
             touch "$projectName/README.md"
             cat <<EOF > "$projectName/pyproject.toml"
